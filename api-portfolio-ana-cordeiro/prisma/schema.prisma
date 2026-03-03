@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // Devolva essa linha!
+}
+
+// Tabela para a Arquiteta (Administradora)
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String   // Salvaremos a senha criptografada (hash)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Tabela para os Projetos do Portfólio
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String   @db.Text
+  mainImage   String   // URL da foto principal
+  images      String[] // Array de URLs para a galeria
+  isVisible   Boolean  @default(true) // Controle para mostrar ou esconder no site
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
