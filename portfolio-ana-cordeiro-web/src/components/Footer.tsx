@@ -62,7 +62,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/ana-carolina-cordeiro-48778133/"
                   className="hover:text-black transition-colors italic font-serif"
                 >
                   LinkedIn

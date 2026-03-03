@@ -1,13 +1,15 @@
+import { NavLink } from "react-router-dom";
 import heroImage from "../assets/home2.png";
 export function Home() {
   return (
-    <main className="pt-20">
+    <main className="pt-28 md:pt-20">
+      {" "}
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[80vh] lg:h-[90vh] flex items-start lg:items-center overflow-hidden  lg:pt-0">
         <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Texto de Impacto */}
           <div className="z-10">
-            <h1 className="text-6xl md:text-8xl font-light leading-tight text-gray-900 tracking-tighter">
+            {/* Reduzimos um pouco o tamanho do texto no mobile (text-5xl) para caber melhor */}
+            <h1 className="text-5xl md:text-8xl font-light leading-tight text-gray-900 tracking-tighter">
               Projetando <br />
               <span className="font-serif italic text-gray-400">
                 o futuro das
@@ -19,9 +21,11 @@ export function Home() {
               Equilíbrio entre estética, sustentabilidade e funcionalidade.
               Transformando espaços urbanos em experiências humanas memoráveis.
             </p>
-            <button className="mt-10 px-8 py-4 bg-black text-white text-sm uppercase tracking-[0.2em] hover:bg-gray-800 transition-all">
-              Ver Projetos
-            </button>
+            <NavLink to="/projetos">
+              <button className="cursor-pointer mt-10 px-8 py-4 bg-black text-white text-sm uppercase tracking-[0.2em] hover:bg-gray-800 transition-all">
+                Ver Projetos
+              </button>
+            </NavLink>
           </div>
 
           {/* Imagem de Destaque (Placeholder de Luxo) */}
@@ -37,7 +41,6 @@ export function Home() {
         {/* Detalhe Decorativo (Linha Urbanista) */}
         <div className="absolute bottom-10 left-0 w-1/3 h-1 bg-gray-200"></div>
       </section>
-
       {/* Seção Breve: O conceito */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
