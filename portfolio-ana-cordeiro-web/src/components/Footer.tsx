@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -23,25 +25,28 @@ export function Footer() {
             </h4>
             <ul className="space-y-4 text-sm text-gray-500">
               <li>
-                <a
-                  href="#projetos"
+                <Link
+                  to="/projetos"
                   className="hover:text-black transition-colors"
                 >
                   Projetos Selecionados
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#sobre" className="hover:text-black transition-colors">
+                <Link
+                  to="/sobre"
+                  className="hover:text-black transition-colors"
+                >
                   A Arquiteta
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contato"
+                <Link
+                  to="/contato"
                   className="hover:text-black transition-colors"
                 >
                   Fale Conosco
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -56,6 +61,7 @@ export function Footer() {
                 <a
                   href="https://www.instagram.com/anacordeiro_interiores/"
                   className="hover:text-black transition-colors italic font-serif"
+                  target="_blank"
                 >
                   Instagram
                 </a>
@@ -64,6 +70,7 @@ export function Footer() {
                 <a
                   href="https://www.linkedin.com/in/ana-carolina-cordeiro-48778133/"
                   className="hover:text-black transition-colors italic font-serif"
+                  target="_blank"
                 >
                   LinkedIn
                 </a>
@@ -72,6 +79,7 @@ export function Footer() {
                 <a
                   href="#"
                   className="hover:text-black transition-colors italic font-serif"
+                  target="_blank"
                 >
                   Pinterest
                 </a>

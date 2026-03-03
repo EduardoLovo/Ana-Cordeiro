@@ -50,9 +50,12 @@ export function About() {
             </div>
 
             {/* Selo de Registro Profissional */}
-            <div className="pt-8 flex items-center gap-4">
-              <div className="h-px w-12 bg-gray-200"></div>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-gray-400">
+            <div className="pt-8 flex items-center gap-3 md:gap-4 flex-nowrap">
+              {/* A classe 'shrink-0' impede que a linha diminua ou desapareça em telas pequenas */}
+              <div className="h-px w-8 md:w-12 bg-gray-200 shrink-0"></div>
+
+              {/* 'whitespace-nowrap' garante que o texto fique em uma única linha */}
+              <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-gray-400 whitespace-nowrap">
                 Registro Profissional CAU A00000-0
               </span>
             </div>

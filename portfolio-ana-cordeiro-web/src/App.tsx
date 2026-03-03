@@ -1,50 +1,35 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+// portfolio-ana-cordeiro-web/src/App.tsx
+import { BrowserRouter, Routes, Route } from "react-router-dom"; // Importação correta
+import { Home } from "./pages/Home";
+import { Projects } from "./pages/Projects";
+import { ProjectDetails } from "./pages/ProjectDetails";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Home } from "./pages/Home";
 import { Contact } from "./pages/Contact";
 import { About } from "./pages/About";
-import { Projects } from "./pages/Projects";
 
-// Criamos um Layout para que o Header e o Footer apareçam em todas as páginas
-function Layout() {
+function App() {
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <Header />
-      <main className="grow">
-        <Outlet />{" "}
-        {/* Aqui é onde as páginas (Home, Contact, etc) serão renderizadas */}
-      </main>
-      <Footer />
-    </div>
+    // Use BrowserRouter como o container principal
+    <BrowserRouter>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="grow">
+          {/* Use Routes para envolver suas rotas individuais */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projetos" element={<Projects />} />
+            <Route path="/sobre" element={<About />} />
+            <Route path="/contato" element={<Contact />} />
+            {/* Rota dinâmica para os detalhes */}
+            <Route path="/projetos/:id" element={<ProjectDetails />} />
+            {/* ... outras rotas */}
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/contato",
-        element: <Contact />,
-      },
-      {
-        path: "/sobre",
-        element: <About />,
-      },
-      {
-        path: "/projetos",
-        element: <Projects />,
-      },
-    ],
-  },
-]);
-
-export default function App() {
-  return <RouterProvider router={router} />;
-}
+export default App;

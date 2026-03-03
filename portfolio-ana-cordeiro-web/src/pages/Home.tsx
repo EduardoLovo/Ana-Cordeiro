@@ -33,7 +33,7 @@ export function Home() {
             {/* Aqui entrará uma imagem de alta qualidade do portfólio */}
             <div
               style={{ backgroundImage: `url(${heroImage})` }}
-              className="absolute inset-0 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+              className="absolute inset-0 bg-cover bg-center grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
             />
           </div>
         </div>

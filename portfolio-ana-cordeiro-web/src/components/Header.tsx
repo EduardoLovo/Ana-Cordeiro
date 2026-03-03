@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+// Importamos Link para a logo e NavLink para o menu
+import { Link, NavLink } from "react-router-dom";
 
-// Definição das rotas para facilitar a manutenção
 const navLinks = [
   { name: "Início", path: "/" },
   { name: "Projetos", path: "/projetos" },
@@ -12,7 +12,7 @@ const navLinks = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Classe utilitária para os links (evita repetição de código)
+  // NavLink nos permite usar essa função para estilizar o link ativo automaticamente
   const linkStyles = ({ isActive }: { isActive: boolean }) =>
     `transition-all duration-300 hover:text-black tracking-widest uppercase ${
       isActive
@@ -23,17 +23,17 @@ export function Header() {
   return (
     <header className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* LOGO: Identidade Visual da Arquiteta */}
-        <NavLink to="/" className="flex flex-col group">
+        {/* LOGO: Usamos Link aqui porque a logo apenas redireciona, sem precisar de estilo "active" */}
+        <Link to="/" className="flex flex-col group">
           <span className="text-xl font-bold tracking-tighter text-gray-900 uppercase">
             Ana Cordeiro
           </span>
           <span className="text-[10px] tracking-[0.3em] text-gray-400 uppercase -mt-1 group-hover:text-black transition-colors">
             Arquitetura & Urbanismo
           </span>
-        </NavLink>
+        </Link>
 
-        {/* DESKTOP NAV: Espaçamento generoso (Arquitetura de luxo) */}
+        {/* DESKTOP NAV: NavLink para identificar a página atual */}
         <div className="hidden md:flex gap-10 text-xs">
           {navLinks.map((link) => (
             <NavLink key={link.path} to={link.path} className={linkStyles}>
@@ -42,7 +42,7 @@ export function Header() {
           ))}
         </div>
 
-        {/* MOBILE MENU BUTTON: Ícone que reflete design moderno */}
+        {/* MOBILE MENU BUTTON */}
         <button
           className="md:hidden flex flex-col justify-center items-center w-8 h-8 relative focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
@@ -60,10 +60,10 @@ export function Header() {
         </button>
       </nav>
 
-      {/* MOBILE MENU OVERLAY: Navegação limpa e funcional */}
+      {/* MOBILE MENU OVERLAY */}
       <div
         className={`md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? "max-h-400px opacity-100 py-8" : "max-h-0 opacity-0"
+          isOpen ? "max-h-400 opacity-100 py-8" : "max-h-0 opacity-0"
         }`}
       >
         <div className="flex flex-col gap-8 text-center">
@@ -71,7 +71,7 @@ export function Header() {
             <NavLink
               key={link.path}
               to={link.path}
-              onClick={() => setIsOpen(false)} // Fecha ao clicar
+              onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
                 `text-lg tracking-[0.2em] uppercase transition-all ${
                   isActive ? "text-black font-bold" : "text-gray-400"
