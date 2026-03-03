@@ -25,7 +25,7 @@ export function Contact() {
               <p className="text-gray-500 leading-relaxed">
                 Av. Paulista, 1000 — Sala 120
                 <br />
-                Bela Vista, São Paulo — SP
+                Guaratinguetá — SP
                 <br />
                 Brasil
               </p>
