@@ -11,7 +11,7 @@ export function About() {
             <img
               src={fotoAna}
               alt="Ana Cordeiro"
-              className="w-full grayscale hover:grayscale-0 transition-all duration-700 aspect-3/4 object-cover"
+              className="w-full transition-all duration-700 aspect-3/4 object-cover"
             />
           </div>
 
