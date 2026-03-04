@@ -25,27 +25,6 @@ const projectsData = [
     category: "Residencial",
     image: projeto3,
   },
-  {
-    id: 4,
-    title: "Edifício Horizonte",
-    category: "Comercial",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000",
-  },
-  {
-    id: 5,
-    title: "Parque Linear Sul",
-    category: "Urbanismo",
-    image:
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1000",
-  },
-  {
-    id: 6,
-    title: "Casa do Bosque",
-    category: "Residencial",
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000",
-  },
 ];
 
 const categories = ["Todos", "Residencial", "Urbanismo", "Comercial"];

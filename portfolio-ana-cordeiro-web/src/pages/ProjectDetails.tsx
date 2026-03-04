@@ -36,43 +36,6 @@ const projectsDetailsData: Record<string, any> = {
     mainImage: projeto3,
     images: [projeto3, projeto3imagem2, projeto3imagem3],
   },
-  "4": {
-    title: "Edifício Horizonte",
-    category: "Residencial",
-    description:
-      "Localizado no coração da metrópole, o Edifício Horizonte redefine o conceito de moradia vertical. Com uma estrutura que privilegia a ventilação natural e a entrada de luz solar, cada unidade foi projetada para oferecer uma conexão visual constante com a linha do horizonte.\n\nO projeto utiliza concreto aparente e painéis de vidro de alto desempenho, garantindo eficiência térmica e uma estética brutalista suavizada pelo paisagismo interno. O destaque fica para o rooftop compartilhado, que atua como uma praça suspensa para os moradores.",
-    mainImage:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000",
-    images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000",
-      "https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=1000",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000",
-    ],
-  },
-  "5": {
-    title: "Parque Linear Sul",
-    category: "Urbanismo",
-    description:
-      "Um projeto de revitalização urbana que transformou uma antiga via férrea em um pulmão verde para a cidade. O Parque Linear Sul estende-se por 2km, conectando bairros anteriormente isolados.\n\nForam implementadas ciclovias, caminhos de drenagem sustentável (jardins de chuva) e mobiliário urbano modular. O projeto foca na biodiversidade local, utilizando apenas espécies nativas no reflorestamento das margens.",
-    mainImage:
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1000",
-    images: [
-      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1000",
-      "https://images.unsplash.com/photo-1518005020251-58296d8412ff?q=80&w=1000",
-    ],
-  },
-  "6": {
-    title: "Casa do Bosque",
-    category: "Residencial",
-    description:
-      "A Casa do Bosque é um exercício de mimetismo arquitetônico. Situada em um terreno densamente arborizado, a residência se organiza em torno das árvores existentes, sem a necessidade de supressão vegetal.\n\nA utilização de madeira engenheirada e pedra local reforça a conexão com a terra, enquanto os grandes vãos de vidro eliminam as barreiras entre o interior e a floresta.",
-    mainImage:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000",
-    images: [
-      "https://images.unsplash.com/photo-1513584684374-8bdb7483fe8f?q=80&w=1000",
-      "https://images.unsplash.com/photo-1600585154340-be6199f7d009?q=80&w=1000",
-    ],
-  },
   // Você pode adicionar os outros IDs (4, 5, 6) aqui seguindo o mesmo padrão
 };
 
