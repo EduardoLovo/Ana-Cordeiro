@@ -1,26 +1,117 @@
+/*
+ * =============================================================================
+ * DESIGN SYSTEM — Ana Cordeiro (versão minimalista P&B)
+ * =============================================================================
+ * Estética preto & branco, com muito espaço, tipografia leve e palavras de
+ * acento em serifada itálica cinza. Reaproveita a escala de cinzas nativa do
+ * Tailwind (gray-50…gray-900) + preto/branco; aqui definimos apenas as fontes
+ * e alguns estilos base.
+ * =============================================================================
+ */
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Sans limpa para textos/títulos; serifada elegante para os itálicos. */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-lora);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    /* Rolagem suave em âncoras internas */
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background: #ffffff;
+    color: #111827; /* gray-900 */
+    font-family: var(--font-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: #111827;
+    color: #ffffff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Acessibilidade: respeita "reduzir movimento" do sistema. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Container central padrão do layout antigo (max-w-7xl + respiro lateral). */
+.container-page {
+  width: 100%;
+  max-width: 80rem; /* ~1280px (max-w-7xl) */
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/*
+ * Texto rico (Portable Text) no estilo minimalista — usado na descrição dos
+ * projetos e na bio da página Sobre. Leve, arejado, em tom de cinza.
+ */
+.prose-minimal {
+  color: #4b5563; /* gray-600 */
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+.prose-minimal > * + * {
+  margin-top: 1.4em;
+}
+.prose-minimal h2 {
+  color: #111827;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-top: 1.8em;
+}
+.prose-minimal h3 {
+  color: #111827;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 1.6em;
+}
+.prose-minimal a {
+  color: #111827;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-minimal strong {
+  color: #111827;
+  font-weight: 600;
+}
+.prose-minimal ul,
+.prose-minimal ol {
+  padding-left: 1.4em;
+}
+.prose-minimal ul {
+  list-style: disc;
+}
+.prose-minimal ol {
+  list-style: decimal;
+}
+.prose-minimal blockquote {
+  border-left: 2px solid #111827;
+  padding-left: 1.25rem;
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  color: #111827;
+}
+.prose-minimal img {
+  width: 100%;
 }

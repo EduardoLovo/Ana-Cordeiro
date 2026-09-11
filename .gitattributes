@@ -1,0 +1,12 @@
+# Normaliza quebras de linha para LF (padrão Linux/Vercel).
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
