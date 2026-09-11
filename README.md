@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ana Cordeiro — Arquitetura & Urbanismo
 
-## Getting Started
+Segundo site/portfólio de Ana Cordeiro, no estilo **minimalista preto & branco**
+(inspirado no design anterior), com painel de administração próprio onde todo o
+conteúdo é editável **sem mexer no código**.
 
-First, run the development server:
+## Tecnologias
+
+- **Next.js 16** (App Router) + **TypeScript**
+- **Tailwind CSS v4** — design system minimalista
+- **Sanity** — CMS/painel embutido em `/studio`
+- **Motion** — animações do menu mobile (o restante é transições CSS de hover)
+- Imagens otimizadas via `next/image` + CDN do Sanity
+- Deploy na **Vercel**
+
+## Como rodar localmente
 
 ```bash
+npm install
+cp .env.example .env.local   # preencha com os dados do seu projeto Sanity
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Site: http://localhost:3000
+- Painel: http://localhost:3000/studio
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variáveis de ambiente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variável | Descrição |
+| --- | --- |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | ID do projeto Sanity (obrigatório) |
+| `NEXT_PUBLIC_SANITY_DATASET` | Conjunto de dados (normalmente `production`) |
+| `NEXT_PUBLIC_SANITY_API_VERSION` | Versão da API do Sanity (data) |
+| `NEXT_PUBLIC_SITE_URL` | URL pública do site (para SEO) |
+| `SANITY_API_WRITE_TOKEN` | Token de escrita (grava as mensagens de contato no painel) — **segredo** |
 
-## Learn More
+> Enquanto `NEXT_PUBLIC_SANITY_PROJECT_ID` for `placeholder`, o site roda
+> exibindo estados vazios — útil antes de conectar o Sanity.
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── (site)/     # Site público (home, projetos, sobre, contato)
+│   ├── api/contato # Endpoint do formulário (grava no painel)
+│   └── studio/     # Painel Sanity embutido em /studio
+├── components/     # Cabeçalho, rodapé, cards, formulário, UI
+├── lib/            # Utilidades (formatação, URL do site)
+└── sanity/         # Schemas, consultas, cliente e estrutura do painel
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Conteúdo editável (painel /studio)
 
-## Deploy on Vercel
+Página inicial, Página Sobre, Projetos (+ categorias), Configurações do site e
+Mensagens de contato. Ao clicar em **Publicar**, o site atualiza sozinho.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Propriedade
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Projeto pensado para ser transferido às contas da arquiteta (GitHub, Vercel e
+Sanity — todas gratuitas).
