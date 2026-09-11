@@ -15,10 +15,30 @@ const NAV_LINKS = [
   { href: "/contato", label: "Fale Conosco" },
 ];
 
+/**
+ * Redes exibidas por padrão enquanto o painel não tiver as redes preenchidas.
+ * Assim a coluna "Social" nunca fica vazia; ao cadastrar redes nas
+ * Configurações do site, elas substituem estas.
+ */
+const DEFAULT_SOCIALS = [
+  {
+    platform: "instagram",
+    url: "https://www.instagram.com/anacordeiro_interiores/",
+  },
+  {
+    platform: "linkedin",
+    url: "https://www.linkedin.com/in/ana-carolina-cordeiro-48778133/",
+  },
+  { platform: "pinterest", url: "https://www.pinterest.com/" },
+];
+
 export function Footer({ settings }: { settings: SiteSettings | null }) {
   const name = settings?.siteName ?? "Ana Cordeiro";
   const year = new Date().getFullYear();
-  const socials = settings?.socials ?? [];
+  const socials =
+    settings?.socials && settings.socials.length > 0
+      ? settings.socials
+      : DEFAULT_SOCIALS;
 
   return (
     <footer className="border-t border-gray-100 bg-white py-16">
@@ -55,27 +75,25 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
           </div>
 
           {/* Social */}
-          {socials.length > 0 && (
-            <div>
-              <h4 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-900">
-                Social
-              </h4>
-              <ul className="space-y-4 text-sm text-gray-500">
-                {socials.map((social) => (
-                  <li key={social.platform + social.url}>
-                    <a
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-serif italic transition-colors hover:text-black"
-                    >
-                      {socialLabels[social.platform] ?? social.platform}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <div>
+            <h4 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-900">
+              Social
+            </h4>
+            <ul className="space-y-4 text-sm text-gray-500">
+              {socials.map((social) => (
+                <li key={social.platform + social.url}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-serif italic transition-colors hover:text-black"
+                  >
+                    {socialLabels[social.platform] ?? social.platform}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Barra final */}

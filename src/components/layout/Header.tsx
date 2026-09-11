@@ -8,6 +8,7 @@
  * sublinhado, e menu mobile animado. Recebe nome e assinatura por props.
  */
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -39,16 +40,26 @@ export function Header({
   return (
     <header className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        {/* Logo (nome + assinatura) */}
-        <Link href="/" className="group flex flex-col">
-          <span className="text-xl font-bold uppercase tracking-tighter text-gray-900">
-            {siteName}
-          </span>
-          {tagline && (
-            <span className="-mt-1 text-[10px] uppercase tracking-[0.3em] text-gray-400 transition-colors group-hover:text-black">
-              {tagline}
+        {/* Marca: logo à esquerda + nome/assinatura */}
+        <Link href="/" className="group flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt=""
+            width={40}
+            height={40}
+            priority
+            className="h-9 w-auto md:h-10"
+          />
+          <span className="flex flex-col">
+            <span className="text-xl font-bold uppercase tracking-tighter text-gray-900">
+              {siteName}
             </span>
-          )}
+            {tagline && (
+              <span className="-mt-1 text-[10px] uppercase tracking-[0.3em] text-gray-400 transition-colors group-hover:text-black">
+                {tagline}
+              </span>
+            )}
+          </span>
         </Link>
 
         {/* Navegação — desktop */}
