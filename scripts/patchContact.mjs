@@ -38,9 +38,9 @@ const client = createClient({
 
 const fields = {
   address: "Guaratinguetá — SP\nBrasil",
-  email: "contato@anacordeiro.com.br",
-  phone: "+55 11 99999-9999",
-  whatsappUrl: "https://wa.me/5511999999999",
+  email: "ana.ca.cordeiro@gmail.com",
+  phone: "12 99128-5874",
+  whatsappUrl: "https://wa.me/5512991285874",
   hours: "Segunda a Sexta\n09:00 — 18:00",
 };
 
@@ -60,7 +60,11 @@ const run = async () => {
   if (hasDraft) tx.patch("drafts.siteSettings", (p) => p.set(fields));
 
   await tx.commit();
-  console.log("✓ Configurações de contato atualizadas (published" + (hasDraft ? " + draft" : "") + ").");
+  console.log(
+    "✓ Configurações de contato atualizadas (published" +
+      (hasDraft ? " + draft" : "") +
+      ").",
+  );
 };
 
 run().catch((e) => {
