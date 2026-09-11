@@ -7,7 +7,7 @@ import { writeClient, hasWriteToken } from "@/sanity/lib/serverClient";
  * ela aparece na aba "Mensagens" do painel.
  */
 
-const MAX = { name: 120, email: 160, subject: 120, message: 4000 };
+const MAX = { name: 120, email: 160, phone: 40, subject: 120, message: 4000 };
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -28,6 +28,7 @@ export async function POST(request: Request) {
 
   const name = String(body.name ?? "").trim().slice(0, MAX.name);
   const email = String(body.email ?? "").trim().slice(0, MAX.email);
+  const phone = String(body.phone ?? "").trim().slice(0, MAX.phone);
   const subject = String(body.subject ?? "").trim().slice(0, MAX.subject);
   const message = String(body.message ?? "").trim().slice(0, MAX.message);
 
@@ -53,6 +54,7 @@ export async function POST(request: Request) {
       _type: "contactMessage",
       name,
       email,
+      phone: phone || undefined,
       subject: subject || undefined,
       message,
       receivedAt: new Date().toISOString(),

@@ -117,22 +117,37 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="subject" className={labelClass}>
-          Assunto
-        </label>
-        <select
-          id="subject"
-          name="subject"
-          className={`${fieldClass} text-gray-600`}
-          defaultValue={SUBJECTS[0]}
-        >
-          {SUBJECTS.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="phone" className={labelClass}>
+            Telefone
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            maxLength={40}
+            placeholder="(11) 99999-9999"
+            className={fieldClass}
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="subject" className={labelClass}>
+            Assunto
+          </label>
+          <select
+            id="subject"
+            name="subject"
+            className={`${fieldClass} text-gray-600`}
+            defaultValue={SUBJECTS[0]}
+          >
+            {SUBJECTS.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="flex flex-col gap-2">
