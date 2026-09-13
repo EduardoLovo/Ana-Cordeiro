@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SmartImage } from "@/components/ui/SmartImage";
+import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { PortableText } from "@/components/portable/PortableText";
 import { getProjectBySlug, getProjectSlugs } from "@/sanity/lib/api";
 import { urlForImage } from "@/sanity/lib/image";
@@ -116,23 +117,9 @@ export default async function ProjetoPage({ params }: PageParams) {
           </div>
         </div>
 
-        {/* Galeria */}
+        {/* Galeria (com lightbox: clique para ampliar, dar zoom e navegar) */}
         {project.gallery && project.gallery.length > 0 && (
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {project.gallery.map((photo, index) => (
-              <figure
-                key={photo.asset?._ref ?? index}
-                className="group relative aspect-square overflow-hidden bg-gray-100"
-              >
-                <SmartImage
-                  image={photo}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-all duration-700 grayscale-0 md:grayscale md:group-hover:grayscale-0"
-                />
-              </figure>
-            ))}
-          </div>
+          <ProjectGallery gallery={project.gallery} title={project.title} />
         )}
       </div>
     </main>
