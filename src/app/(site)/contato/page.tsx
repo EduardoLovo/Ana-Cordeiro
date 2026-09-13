@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Contato",
   description:
     "Fale com Ana Cordeiro para transformar sua ideia em espaço.",
+  alternates: { canonical: "/contato" },
 };
 
 export default async function ContatoPage() {

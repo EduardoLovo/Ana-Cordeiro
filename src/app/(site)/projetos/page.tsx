@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Projetos",
   description:
     "Portfólio de projetos de arquitetura e urbanismo: residenciais, urbanos e comerciais.",
+  alternates: { canonical: "/projetos" },
 };
 
 export default async function ProjetosPage({

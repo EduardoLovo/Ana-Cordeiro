@@ -18,6 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
       about?.seo?.metaDescription ||
       about?.intro ||
       "Conheça a trajetória e a abordagem de Ana Cordeiro.",
+    alternates: { canonical: "/sobre" },
     openGraph: about?.seo?.shareImage
       ? { images: [urlForImage(about.seo.shareImage).width(1200).height(630).url()] }
       : undefined,

@@ -5,8 +5,13 @@
  * itálico serifado, imagem em preto & branco que ganha cor no hover, e a
  * seção de filosofia. Todo o conteúdo vem do painel, com textos de reserva.
  */
+import type { Metadata } from "next";
 import { SmartImage } from "@/components/ui/SmartImage";
 import { getHomePage } from "@/sanity/lib/api";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function HomePage() {
   const home = await getHomePage();

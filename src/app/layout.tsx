@@ -31,10 +31,26 @@ export const metadata: Metadata = {
   description:
     "Arquitetura e urbanismo com equilíbrio entre estética, sustentabilidade e funcionalidade. Portfólio de projetos de Ana Cordeiro.",
   metadataBase: new URL(siteUrl),
+  authors: [{ name: "Ana Cordeiro" }],
+  creator: "Ana Cordeiro",
   openGraph: {
     type: "website",
     locale: "pt_BR",
+    url: siteUrl,
     siteName: "Ana Cordeiro — Arquitetura & Urbanismo",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

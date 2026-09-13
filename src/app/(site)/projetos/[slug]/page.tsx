@@ -28,6 +28,7 @@ export async function generateMetadata({
   return {
     title: project.title,
     description: project.summary,
+    alternates: { canonical: `/projetos/${slug}` },
     openGraph: project.coverImage
       ? { images: [urlForImage(project.coverImage).width(1200).height(630).url()] }
       : undefined,
