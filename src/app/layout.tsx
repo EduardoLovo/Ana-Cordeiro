@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s · Ana Cordeiro",
   },
   description:
-    "Arquitetura e urbanismo com equilíbrio entre estética, sustentabilidade e funcionalidade. Portfólio de projetos de Ana Cordeiro.",
+    "Arquitetura com equilíbrio entre estética, sustentabilidade e funcionalidade. Portfólio de projetos de Ana Cordeiro.",
   metadataBase: new URL(siteUrl),
   authors: [{ name: "Ana Cordeiro" }],
   creator: "Ana Cordeiro",
