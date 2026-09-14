@@ -20,7 +20,11 @@ export async function generateMetadata(): Promise<Metadata> {
       "Conheça a trajetória e a abordagem de Ana Cordeiro.",
     alternates: { canonical: "/sobre" },
     openGraph: about?.seo?.shareImage
-      ? { images: [urlForImage(about.seo.shareImage).width(1200).height(630).url()] }
+      ? {
+          images: [
+            urlForImage(about.seo.shareImage).width(1200).height(630).url(),
+          ],
+        }
       : undefined,
   };
 }
@@ -61,7 +65,7 @@ export default async function SobrePage() {
           {/* Foto com moldura minimalista */}
           <div className="group relative">
             <div className="absolute -inset-4 -z-10 border border-gray-100 transition-all duration-500 group-hover:inset-0" />
-            <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
+            <div className="relative aspect-3/4 w-full overflow-hidden bg-gray-100">
               <SmartImage
                 image={about?.portrait}
                 alt={`${nameLine} ${nameAccent}`}
