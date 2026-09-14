@@ -25,7 +25,7 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ana Cordeiro — Arquitetura",
+    default: "Arquiteta Ana Cordeiro",
     template: "%s · Ana Cordeiro",
   },
   description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: siteUrl,
-    siteName: "Ana Cordeiro — Arquitetura",
+    siteName: "Arquiteta Ana Cordeiro",
   },
   twitter: {
     card: "summary_large_image",
